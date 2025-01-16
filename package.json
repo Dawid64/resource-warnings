@@ -2,7 +2,7 @@
   "name": "resource-warnings",
   "displayName": "resource warnings",
   "description": "Extension for monitoring system resources usage and warning if they are close to limit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Dawid64",
   "engines": {
     "vscode": "^1.96.0"
@@ -12,7 +12,7 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {

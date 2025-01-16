@@ -14,8 +14,8 @@ export type FormatedVmStat = {
   [prop: string]: number
 }
 
-function rawToGB(raw: number) {
-    return (raw / (1000 * 1000 * 1000)).toFixed(1)
+function rawToGB(raw: number, multiplier: number = 1000) {
+    return (raw / (multiplier * multiplier * multiplier)).toFixed(1)
 }
 
 let intervalHandle: NodeJS.Timeout | undefined
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
   intervalHandle = setInterval(async () => {
     const info = await getMacOsMemoryUsageInfo()
     const usagePercent = info.usagePercent * 100 * 1.024 * 1.024 * 1.024
-    statusBarItem.text = `$(database) ${rawToGB(info.used)} GB`
+    statusBarItem.text = `$(database) ${rawToGB(info.used, 1000)} GB`
 
     if (usagePercent >= 80) {
       statusBarItem.color = '#FF0000'
