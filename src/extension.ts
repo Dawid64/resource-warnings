@@ -22,7 +22,7 @@ let intervalHandle: NodeJS.Timeout | undefined
 
 export function activate(context: vscode.ExtensionContext) {
   const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100)
-  statusBarItem.text = '$(database) ... GB'
+  statusBarItem.text = ''
   statusBarItem.tooltip = 'Memory Usage'
   statusBarItem.color = '#FFFFFF'
   statusBarItem.show()
